@@ -1,0 +1,7 @@
+machine:
+  environment:
+    HOME: /src
+
+test:
+  override:    
+    - mocha
