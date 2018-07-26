@@ -1,19 +1,20 @@
-FROM centos:centos6
+FROM centos:centos7
 
-MAINTAINER nigelpoulton@hotmail.com
+LABEL MAINTAINER=nigelpoulton@hotmail.com
 
-# Enable EPEL for Node.js
-RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+# Install Node etc...
+RUN yum -y update; yum clean all
+RUN yum -y install epel-release; yum clean all
+RUN yum -y install nodejs npm; yum clean all
 
-# Install Node...
-RUN yum install -y npm
-
-# Copy app to /src
+# Copy source code to /src in container
 COPY . /src
 
-# Install app and dependencies into /src
+# Install app and dependencies into /src in container
 RUN cd /src; npm install
 
+# Document the port the app listens on
 EXPOSE 8080
 
+# Run this command (starts the app) when the container starts
 CMD cd /src && node ./app.js

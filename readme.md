@@ -1,11 +1,11 @@
-# Test app for Pluralsight course
+# Test app for demonstrating containerizing web app
 
-This is a quick and dirty test node.js app cobbled together for the purposes of demonstrating a basic CI/CD workflow with Docker Hub for a Pluralsight video training course..
+Super-simple Node web app for containerization demos
 
 ## Instructions for use
 
-All of the files included in the .zip file (available to Plus subscribers) should be unzipped into a new directory.
-
-Initializing a Git repo and making a remote of it on GitHub are explained in Module 2 of the course.
-
-The viewer should have Git installed and have a GitHub account.
+1. Fork the repo 
+2. Clone repo locally
+3. Build Docker iamge `docker image build -t <tag> .` from within the root directory of the repo 
+4. Push image to container registry
+5. Run container/Pod using the created image

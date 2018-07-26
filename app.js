@@ -1,15 +1,15 @@
-// Sample node.js web app for Pluralsight Docker CI course
-// For demonstration purposes only
+// Simple node.js web app for demonstrating containerizing apps
+// For quick demo purposes only (not properly maintained)
 'use strict';
 
 var express = require('express'),
     app = express();
 
 app.set('views', 'views');
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.get('/', function(req, res) {
-    res.render('home', {
+    res.render('home.pug', {
   });
 });
 
