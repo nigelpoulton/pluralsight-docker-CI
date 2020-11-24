@@ -7,6 +7,16 @@
 #    commands:
 #      - $DOCKER_HUB_TRIGGER
 
-test:
-  override:    
-    - mocha
+#test:
+#  override:    
+#    - mocha
+
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:12.2
+    steps:
+      - checkout
+      - run: npm install
+      
